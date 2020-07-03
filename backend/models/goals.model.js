@@ -13,6 +13,10 @@ const goalsSchema = new Schema({
         type: Boolean,
         required: true
     },
+    owner: {
+        type: Schema.Types.ObjectId,
+        ref: "Users"
+    }
 }, {
     timestamps: true,
 });

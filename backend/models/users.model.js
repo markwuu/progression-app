@@ -23,7 +23,11 @@ const usersSchema = new Schema({
         type: String,
         required: false,
         trim: true
-    }
+    },
+    goals: [{
+        type: Schema.Types.ObjectId,
+        ref: "Goals"
+    }]
 }, {
     timestamps: true,
 });
