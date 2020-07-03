@@ -11,11 +11,9 @@ app.use(cors());
 app.use(express.json());
 
 const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true });
+mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
 const connection = mongoose.connection;
-connection.once('open', () => {
-  console.log("MongoDB database connection established successfully");
-})
+connection.once('open', () => { console.log("MongoDB database connection established successfully"); });
 
 const usersRouter = require('./routes/users');
 const goalsRouter = require('./routes/goals');
@@ -27,6 +25,4 @@ app.use('/goals', goalsRouter);
 app.use('/tasks', tasksRouter);
 app.use('/friends', friendsRouter);
 
-app.listen(port, () => {
-    console.log(`Server is running on port: ${port}`);
-});
+app.listen(port, () => { console.log(`Server is running on port: ${port}`); });
