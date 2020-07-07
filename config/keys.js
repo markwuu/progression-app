@@ -1,5 +1,6 @@
-dbPassword = 'mongodb+srv://markwuu:HkwkcYxFc5iun2e9@cluster0.ojno4.mongodb.net/<dbname>?retryWrites=true&w=majority';
+require('dotenv').config()
+const { dbPassword } = process.env;
 
 module.exports = {
-    mongoURI: dbPassword
+    mongoURI: process.env.dbPassword
 };
