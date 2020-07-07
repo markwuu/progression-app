@@ -1,0 +1,10 @@
+<% include ./partials/navbar %>
+<div class="row">
+    <div class="col-xs-12">
+
+        <h1 class="mt-4">Welcome back, <%= user.username %>!</h1>
+        <h3>Score: <%= user.score %></h3>
+    </div>
+</div>
+<% include ./partials/goalform %>
+<% include ./partials/goallist %>

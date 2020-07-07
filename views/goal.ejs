@@ -1,0 +1,15 @@
+<div class="mt-4" style="border:2px solid black;">
+    <h1>Goal: <%= goal %></h1>
+    <h1><%= username %></h1>
+
+    <form method="POST" action="/goals/delete/<%= goal %>">
+        <button class="btn btn-primary" type="submit">Delete Goal</button>
+    </form>
+    <form method="POST" action="/goals/complete/<%= goal %>/<%= username %>">
+        <button class="btn btn-success" type="submit">Complete Goal</button>
+    </form>
+</div>
+
+<% include ./partials/taskform %>
+
+<%= tasks %>
