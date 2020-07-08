@@ -27,7 +27,7 @@ router.post('/add/:goal', ensureAuthenticated, async (req, res) => {
     goalById.tasks.push(task);
     await goalById.save();
 
-    res.status(200).redirect(`/goals/${req.params.goal}/${req.user.username}`);
+    res.status(200).redirect(`/goals/${req.params.goal}`);
 });
 
 module.exports = router;

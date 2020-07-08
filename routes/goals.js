@@ -4,13 +4,13 @@ const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
 const Goal = require('../models/Goal');
 const User = require('../models/User');
 
-router.get('/', ensureAuthenticated, (req, res) => res.render('goal'));
+router.get('/', ensureAuthenticated, (req, res) => {
+    console.log('req', req);
+    res.render('goal')
+});
 
-router.get('/:id/:username', ensureAuthenticated, async (req, res) => {
-    console.log('request:', req.params.username);
-
+router.get('/:id', ensureAuthenticated, async (req, res) => {
     const goalTasks = await Goal.findOne({ description: req.params.id}).populate('tasks');
-    // console.log('goalTasks', goalTasks);
 
     let tasksArray = [];
 
@@ -21,7 +21,7 @@ router.get('/:id/:username', ensureAuthenticated, async (req, res) => {
     res.render('goal', {
         goal: req.params.id,
         tasks: tasksArray,
-        username: req.params.username
+        user: req.user
     });
 });
 

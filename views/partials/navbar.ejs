@@ -1,16 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light row">
-
-    <a class="navbar-brand" href="#">Navbar</a>
-
-
-
-    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button> -->
-
-
-
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light row">
+    <a class="navbar-brand" href="/dashboard">Goals</a>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
             <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
@@ -18,6 +7,17 @@
             <a href="/users/logout" class="btn btn-secondary">Logout</a>
         </div>
     </div>
+</nav> -->
+<div class="container">
 
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/dashboard">Hi <%= user.username %>!</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <!-- add your links here -->
+            </ul>
+            <a href="/users/logout" class="btn btn-secondary">Logout</a>
+        </div>
+    </nav>
 
-</nav>
+</div>

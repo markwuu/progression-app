@@ -1,11 +1,10 @@
 <div class="column">
     <div>completed goals:</div>
     <div class="row">
-
         <% for (let i = 0; i < completedGoals.length; i++) { %>
         <div class="col-md-4">
             <div class="card card-body text-center bg-info">
-                <a href="/goals/<%= completedGoals[i] %>/<%= user.username %>">
+                <a href="/goals/<%= completedGoals[i] %>">
                     <%= completedGoals[i] %>
             </div>
         </div>
@@ -19,7 +18,7 @@
         <% for (let i = 0; i < uncompletedGoals.length; i++) { %>
         <div class="col-md-4">
             <div class="card card-body text-center">
-                <a href="/goals/<%= uncompletedGoals[i] %>/<%= user.username %>">
+                <a href="/goals/<%= uncompletedGoals[i] %>">
                     <%= uncompletedGoals[i] %>
                 </a>
             </div>

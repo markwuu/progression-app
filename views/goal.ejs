@@ -1,11 +1,13 @@
+<% include ./partials/navbar %>
+
 <div class="mt-4" style="border:2px solid black;">
     <h1>Goal: <%= goal %></h1>
-    <h1><%= username %></h1>
+    <h1><%= user.username %></h1>
 
     <form method="POST" action="/goals/delete/<%= goal %>">
         <button class="btn btn-primary" type="submit">Delete Goal</button>
     </form>
-    <form method="POST" action="/goals/complete/<%= goal %>/<%= username %>">
+    <form method="POST" action="/goals/complete/<%= goal %>/<%= user.username %>">
         <button class="btn btn-success" type="submit">Complete Goal</button>
     </form>
 </div>
