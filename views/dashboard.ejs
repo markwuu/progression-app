@@ -36,16 +36,30 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-12">
-        </div>
-    </div>
-    <div class="row">
         <div class="col-md-4">
             <div class="row">
                 <div class="col-md-9">
 
+                    <div class="card text-white bg-info" style="margin-bottom: 15px">
+                        <h5 class="card-header">
+                            Analytics
+                        </h5>
+                        <div class="card-body">
+                            <p class="card-text">
+                                Total points:
+                                <br />
+                                Tasks created:
+                                <br />
+                                Goals completed:
+                            </p>
+                        </div>
+                    </div>
 
-                    <!-- <div class="col-sm-3"> -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+
                     <div class="form-group">
                         <form action="/goals/add" method="POST">
                             <div class="form-group">
@@ -56,10 +70,6 @@
                             <button type="submit" class="btn btn-primary btn-block">Enter Goal</button>
                         </form>
                     </div>
-                    <!-- </div> -->
-
-
-
 
                 </div>
             </div>
@@ -77,13 +87,15 @@
 
                     <div class="card text-white bg-info" style="margin-bottom: 15px">
                         <h5 class="card-header">
-                            Card title
+                            <a href="/goals/<%= uncompletedGoals[i] %>" style="color:#d5e7f5;">
+                                <%= uncompletedGoals[i] %>
+                            </a>
                         </h5>
                         <div class="card-body">
                             <p class="card-text">
-                                <a href="/goals/<%= uncompletedGoals[i] %>">
-                                    <%= uncompletedGoals[i] %>
-                                </a>
+                                Points: 100,000
+                                <br />
+                                Tasks: 36
                             </p>
                         </div>
                     </div>
