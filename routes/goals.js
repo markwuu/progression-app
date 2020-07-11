@@ -12,6 +12,8 @@ router.get('/', ensureAuthenticated, (req, res) => {
 router.get('/:id', ensureAuthenticated, async (req, res) => {
     const goalTasks = await Goal.findOne({ description: req.params.id}).populate('tasks');
 
+    const goalsData = await Goal.findOne({description: req.params.id})
+
     let tasksArray = [];
 
     for(let i = 0; i < goalTasks.tasks.length; i++){
@@ -19,6 +21,7 @@ router.get('/:id', ensureAuthenticated, async (req, res) => {
     }
 
     res.render('goal', {
+        goalsData: goalsData,
         goal: req.params.id,
         tasks: tasksArray,
         user: req.user
@@ -82,6 +85,7 @@ router.post('/add', ensureAuthenticated, async (req, res) => {
     const goal = await Goal.create({
         description,
         success: false,
+        points: 0,
         user: req.user._id
     });
 

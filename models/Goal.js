@@ -13,6 +13,9 @@ const goalSchema = new Schema({
         type: Boolean,
         required: true
     },
+    points: {
+        type: Number
+    },
     user: {
         type: Schema.Types.ObjectId,
         ref: "Users"
