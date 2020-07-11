@@ -9,10 +9,12 @@ router.get('/', ensureAuthenticated, (req, res) => {
     res.render('goal')
 });
 
+//Passes goals data and tasks data to goal page
 router.get('/:id', ensureAuthenticated, async (req, res) => {
     const goalTasks = await Goal.findOne({ description: req.params.id}).populate('tasks');
 
     const goalsData = await Goal.findOne({description: req.params.id})
+    console.log('goalsData', goalsData)
 
     let tasksArray = [];
 
