@@ -1,17 +1,67 @@
 <% include ./partials/navbar %>
+<div style="padding-top:50px;"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <h5 class="card-header text-center">
+                    <%= goal %>
+                </h5>
+                <div class="card-body">
+                    <p class="card-text text-center">
+                        Points: 1000
+                    </p>
+                </div>
+                <div class="card-footer text-center">
+                    <form method="POST" action="/goals/complete/<%= goal %>/<%= user.username %>">
+                        <button class="btn btn-success" type="submit">Complete Goal</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+        </div>
+    </div>
+    <div style="padding-top:30px;"></div>
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <h5 class="card-header text-center">
+                    Add a task to finish your goal!
+                </h5>
+                <div class="card-body">
+                    <p class="card-text text-center">
+                        <% include ./partials/taskform %>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+        </div>
+    </div>
+    <div style="padding-top:30px;"></div>
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+            <div class="card">
 
-<div class="mt-4" style="border:2px solid black;">
-    <h1>Goal: <%= goal %></h1>
-    <h1><%= user.username %></h1>
-
-    <form method="POST" action="/goals/delete/<%= goal %>">
-        <button class="btn btn-primary" type="submit">Delete Goal</button>
-    </form>
-    <form method="POST" action="/goals/complete/<%= goal %>/<%= user.username %>">
-        <button class="btn btn-success" type="submit">Complete Goal</button>
-    </form>
+                <div class="card-body">
+                    <p class="card-text">
+                        <ul>
+                            <% for (var i = 0; i < tasks.length ; i++) { %>
+                            <li> <%= tasks[i] %> </li>
+                            <% } %>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+        </div>
+    </div>
 </div>
-
-<% include ./partials/taskform %>
-
-<%= tasks %>
