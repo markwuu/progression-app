@@ -11,7 +11,7 @@ router.get('/', forwardAuthenticated, (req, res) => res.render('welcome'));
 router.get('/dashboard', ensureAuthenticated, async (req, res) => {
 
   const userGoals = await User.findById(req.user._id).populate('goals');
-  console.log('usergoals', userGoals);
+  // console.log('usergoals', userGoals);
 
   let uncompletedGoals = [];
   let completedGoals = [];
@@ -19,7 +19,7 @@ router.get('/dashboard', ensureAuthenticated, async (req, res) => {
   let taskLength = [];
 
   for(let i = 0; i < userGoals.goals.length; i++){
-    console.log(userGoals.goals[i].points, userGoals.goals[i].success);
+    // console.log(userGoals.goals[i].points, userGoals.goals[i].success);
     if(!userGoals.goals[i].success !== true){
       completedGoals.push(userGoals.goals[i].description);
     } else {
@@ -29,7 +29,7 @@ router.get('/dashboard', ensureAuthenticated, async (req, res) => {
     }
   }
 
-  console.log('score', score);
+  // console.log('score', score);
 
   res.render('dashboard', {
     user: req.user,

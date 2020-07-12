@@ -8,10 +8,10 @@ const Task = require('../models/Task');
 router.post('/add/:goal', ensureAuthenticated, async (req, res) => {
     const { description, _id } = req.body;
     let points;
-    console.log('description', description);
-    console.log('req.body', req.body);
-    console.log('req.user', req.user._id);
-    console.log('req.params', req.params.goal);
+    // console.log('description', description);
+    // console.log('req.body', req.body);
+    // console.log('req.user', req.user._id);
+    // console.log('req.params', req.params.goal);
 
     const goal = await Goal.findOne({ description: req.params.goal });
 
@@ -19,7 +19,7 @@ router.post('/add/:goal', ensureAuthenticated, async (req, res) => {
         description,
         goal: goal._id
     })
-    console.log('task', task);
+    // console.log('task', task);
 
     await task.save();
 
