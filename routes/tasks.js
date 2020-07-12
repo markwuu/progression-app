@@ -7,6 +7,7 @@ const Task = require('../models/Task');
 
 router.post('/add/:goal', ensureAuthenticated, async (req, res) => {
     const { description, _id } = req.body;
+    let points;
     console.log('description', description);
     console.log('req.body', req.body);
     console.log('req.user', req.user._id);
@@ -26,6 +27,13 @@ router.post('/add/:goal', ensureAuthenticated, async (req, res) => {
 
     goalById.tasks.push(task);
     await goalById.save();
+
+    points = goalById.points;
+    points += description.length;
+
+    await Goal.findOneAndUpdate({ description: req.params.goal }, { points: points}, {
+        returnOriginal: false
+    })
 
     res.status(200).redirect(`/goals/${req.params.goal}`);
 });
