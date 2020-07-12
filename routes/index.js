@@ -16,14 +16,16 @@ router.get('/dashboard', ensureAuthenticated, async (req, res) => {
   let uncompletedGoals = [];
   let completedGoals = [];
   let score = [];
+  let taskLength = [];
 
   for(let i = 0; i < userGoals.goals.length; i++){
     console.log(userGoals.goals[i].points, userGoals.goals[i].success);
     if(!userGoals.goals[i].success !== true){
       completedGoals.push(userGoals.goals[i].description);
     } else {
-      score.push(userGoals.goals[i].points)
-      uncompletedGoals.push(userGoals.goals[i].description)
+      score.push(userGoals.goals[i].points);
+      taskLength.push(userGoals.goals[i].tasks.length);
+      uncompletedGoals.push(userGoals.goals[i].description);
     }
   }
 
@@ -33,7 +35,8 @@ router.get('/dashboard', ensureAuthenticated, async (req, res) => {
     user: req.user,
     completedGoals,
     uncompletedGoals,
-    score
+    score,
+    taskLength
   });
 
   goalsArray = [];
