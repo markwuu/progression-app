@@ -20,22 +20,31 @@
                         </div>
                     </div>
 
+
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-9">
+                    <div class="card text-white bg-info" style="margin-bottom: 15px">
+                        <div class="card-body">
+                            <p class="card-text">
 
-                    <div class="form-group">
-                        <form action="/goals/add" method="POST">
-                            <div class="form-group">
-                                <!-- <label for="Description">Enter Goal</label> -->
-                                <input type="text" id="description" name="description" class="form-control"
-                                    placeholder="Enter Goal" />
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-block">Enter Goal</button>
-                        </form>
+
+                                <div class="form-group">
+                                    <form action="/goals/add" method="POST">
+                                        <div class="form-group">
+                                            <!-- <label for="Description">Enter Goal</label> -->
+                                            <input type="text" id="description" name="description" class="form-control"
+                                                placeholder="Enter Goal" />
+                                        </div>
+                                        <button type="submit" class="btn btn-block btn-primary">Enter
+                                            Goal</button>
+                                    </form>
+                                </div>
+
+                            </p>
+                        </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -44,13 +53,13 @@
             <div class="row">
                 <% for (let i = 0; i < uncompletedGoals.length; i++) { %>
                 <div class="col-md-4">
-                    <div class="card text-white bg-info" style="margin-bottom: 15px">
-                        <h5 class="card-header">
+                    <div class="card text-white bg-info" style="margin-bottom:20px">
+                        <h5 class="card-header text-center">
                             <a href="/goals/<%= uncompletedGoals[i] %>" style="color:#d5e7f5;">
                                 <%= uncompletedGoals[i] %>
                             </a>
                         </h5>
-                        <div class="card-body">
+                        <div class="card-body text-center">
                             <p class="card-text">
                                 Points: <%= score[i] %>
                                 <br />
