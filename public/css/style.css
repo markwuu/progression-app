@@ -9,3 +9,13 @@ div {
 body {
     background-image: url('/images/background.jpg');
 }
+
+.checkmark-button {
+    width: 100px;
+    height: 50px;
+}
+
+.checkmark-svg {
+    width: 25px;
+    height: 25px;
+}
