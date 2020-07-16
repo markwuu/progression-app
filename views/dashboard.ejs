@@ -14,7 +14,6 @@
                             <p class="card-text">
                                 Total points: <%= user.score %>
                                 <br />
-                                <!-- Tasks completed: -->
                                 Goals completed: <%= completedGoals.length %>
                             </p>
                         </div>
@@ -53,7 +52,7 @@
             <div class="row">
                 <% for (let i = 0; i < uncompletedGoals.length; i++) { %>
                 <div class="col-md-4">
-                    <div class="card text-white bg-info" style="margin-bottom:20px">
+                    <div class="card text-white bg-info goals-card" style="margin-bottom:20px">
                         <h5 class="card-header text-center">
                             <a href="/goals/<%= uncompletedGoals[i] %>" style="color:#d5e7f5;">
                                 <%= uncompletedGoals[i] %>
