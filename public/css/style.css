@@ -11,12 +11,13 @@ body {
 }
 
 .welcome-page-container {
-    background-image: url('/images/bgggg.jpg');
+    background-image: url('/images/bg.jpg');
+    opacity: 1;
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    /* opacity: 0.23; */
+    opacity: 0.75;
     background-color: #ccc;
     position: fixed;
     width: 100%;
